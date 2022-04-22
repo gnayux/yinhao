@@ -7,3 +7,13 @@ services:
       - ./:/app:delegated
     ports:
       - '8000:80'
+  mysql:
+    image: mysql
+    container_name: mysql1
+    ports:
+      - 3307:3306
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
